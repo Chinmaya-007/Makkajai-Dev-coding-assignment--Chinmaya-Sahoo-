@@ -95,6 +95,33 @@ public class Bill {
             ex.printStackTrace();
         }
 	}
+	//----------------------------------------------------------------------------------------------------------------------------
+
+	public void printBill(){
+		int numOfItems = ItemsList.size();
+		for(int i = 0;i<numOfItems;i++){
+			System.out.println("1" + ItemsList.get(i).getName() + "at " + ItemsList.get(i).getPrice());
+		}
+		System.out.printf("Sales Tax: %.2f\n", taxTotal);
+		System.out.println("Total: " + total);
+	}
+
+    /** prints out total Bill
+     * @param arg NULL
+     * containing no command line argument
+     * @Exception No Exception
+     * @return no return value
+     * @functions
+     * setTotal(args)
+     * setSalesTaxTotal(args)
+     * round(args)
+     * roundTwoDecimals(args)
+     * getTotal()
+     * getSalesTaxTotal()
+     * 
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
+     
 	
 	public void totalBill(){
 		int numOfItems = ItemsList.size();
@@ -141,18 +168,47 @@ public class Bill {
 			taxTotal = roundTwoDecimals(taxTotal);
 			total = runningSum.doubleValue();
 	}
-	
+
+	/** sets out total value
+     * @param arg amount BigDecimal
+     * containing command line argument
+     * @Exception No Exception
+     * @return no return value
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
 	public void setTotal(BigDecimal amount){
 		total = amount.doubleValue();
 	}
 	
+	/** return total
+     * @param arg -NULL
+     * containing no command line argument
+     * @Exception No Exception
+     * @return total
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
 	public double getTotal(){
 		return total;
 	}
+	
+	/** sets out total tax value
+     * @param arg amount BigDecimal
+     * containing command line argument
+     * @Exception No Exception
+     * @return no return value
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
 	public void setSalesTaxTotal(BigDecimal amount){
 		taxTotal = amount.doubleValue();
 	}
 	
+	/** return total tax
+     * @param arg -NULL
+     * containing no command line argument
+     * @Exception No Exception
+     * @return taxTotal
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
 	public double getSalesTaxTotal(){
 		return taxTotal;
 	}
@@ -172,6 +228,13 @@ public class Bill {
 		
 	}
 	
+	/** return Result with round value
+     * @param arg value, increment,RoundingMode
+     * containing command line argument
+     * @Exception No Exception
+     * @return result
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
 	public static BigDecimal round(BigDecimal value, BigDecimal increment,RoundingMode roundingMode) {
 		if (increment.signum() == 0) {
 		return value;
@@ -183,18 +246,18 @@ public class Bill {
 		}
 	}
 	
+	/** return Result with two decimal round value
+     * @param arg d
+     * containing command line argument
+     * @Exception No Exception
+     * @return d
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
 	public double roundTwoDecimals(double d) {
 	    DecimalFormat twoDForm = new DecimalFormat("#.##");
 	    return Double.valueOf(twoDForm.format(d));
 	}
 	
-	public void printBill(){
-		int numOfItems = ItemsList.size();
-		for(int i = 0;i<numOfItems;i++){
-			System.out.println("1" + ItemsList.get(i).getName() + "at " + ItemsList.get(i).getPrice());
-		}
-		System.out.printf("Sales Tax: %.2f\n", taxTotal);
-		System.out.println("Total: " + total);
-	}
+	
 	
 }
