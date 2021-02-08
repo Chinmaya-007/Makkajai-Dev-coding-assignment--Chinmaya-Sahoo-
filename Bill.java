@@ -95,8 +95,13 @@ public class Bill {
             ex.printStackTrace();
         }
 	}
-	//----------------------------------------------------------------------------------------------------------------------------
-
+	/** Prints out total bill
+     * @param arg NULL
+     * containing no command line argument
+     * @Exception No Exception
+     * @return no return value
+     * ----------------------------------------------------------------------------------------------------------------------------
+     */
 	public void printBill(){
 		int numOfItems = ItemsList.size();
 		for(int i = 0;i<numOfItems;i++){
@@ -106,7 +111,7 @@ public class Bill {
 		System.out.println("Total: " + total);
 	}
 
-    /** prints out total Bill
+    /** sets out total Bill
      * @param arg NULL
      * containing no command line argument
      * @Exception No Exception
